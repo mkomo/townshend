@@ -1,0 +1,92 @@
+.banner {
+	margin-top: 0;
+	margin-bottom: 0;
+	border: 0;
+	border-radius: 0;
+	max-height: 10em;
+	overflow-y: auto;
+	transition: 0.3s;
+	transition-property: max-height,padding-top,padding-bottom;
+}
+
+.banner_hidden {
+	max-height: 0;
+	overflow-y: hidden;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.banner_hidden * {
+	opacity: 0;
+}
+.banner button:focus {
+	outline: none;
+}
+
+.banner_full_width {
+	margin-left: -15px;
+	margin-right: -15px;
+	box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.loader, .error {
+	margin: 2em auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	//do not define height here - multiline message will overflow above and below
+}
+
+.loader div, .error div {
+	display: inline-block;
+}
+.loader .message, .error .message {
+	vertical-align: middle;
+	font-size: 2em;
+}
+
+.loader .icon, .error .icon {
+	width: 3em;
+	height: 3em;
+	margin: 1em;
+}
+
+.loader .icon {
+	border: 0.5em solid #f3f3f3;
+	border-top: 0.5em solid #3498db;
+	border-radius: 50%;
+	animation: spin 2s linear infinite;
+}
+
+.loading_inline {
+  display: inline-block;
+  font-size: 1em;
+  font-family: monospace;
+}
+
+.loading_spinner {
+  vertical-align: top;
+  display: inline-block;
+  border: 0.25em solid #f3f3f3;
+  border-top: 0.25em solid #666;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error .icon {
+	border: 1.5em solid #ddd;
+	border-top: 1.5em solid #dc3545;
+	border-bottom: 1.5em solid #dc3545;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

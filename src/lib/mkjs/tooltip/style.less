@@ -1,0 +1,109 @@
+/* Tooltip container */
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip a, .tooltip span:not(.tooltiptext) {
+	border-bottom: 1px dotted #000000cc;
+}
+
+.tooltiptext {
+	font-size: 0.75em;
+	visibility: hidden;
+	background-color: #000000cc;
+	color: #fff;
+	text-align: center;
+	padding: 0.5em 1em;
+	border-radius: 6px;
+	pointer-events: none;
+
+	position: absolute;
+	z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.tooltiptext {
+	opacity: 0;
+	transition: opacity 1s;
+	transition-delay: 0.5s;
+}
+
+.tooltip:hover .tooltiptext {
+	opacity: 1;
+}
+
+.tooltiptext_left {
+white-space: nowrap;
+	top: 50%;
+	margin-top: -50%;
+	right: ~"calc(100% + 5px)";
+}
+
+.tooltiptext_left::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 100%; /* To the right of the tooltip */
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent #000000cc;
+}
+
+.tooltiptext_right {
+white-space: nowrap;
+	top: 50%;
+	margin-top: -50%;
+	left: ~"calc(100% + 5px)";
+}
+
+.tooltiptext_right::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	right: 100%; /* To the left of the tooltip */
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #000000cc transparent transparent;
+}
+
+.tooltiptext_bottom {
+	top: ~"calc(100% + 5px)";	/* At the top of the tooltip */
+	left: 50%;
+	width: 120px;
+	margin-left: -60px;
+}
+
+.tooltiptext_bottom::after {
+	content: " ";
+	position: absolute;
+	bottom: 100%;	/* At the top of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #000000cc transparent;
+}
+
+.tooltiptext_top {
+	bottom: ~"calc(100% + 5px)";	/* At the top of the tooltip */
+	left: 50%;
+	width: 120px;
+	margin-left: -60px;
+}
+
+.tooltiptext_top::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #000000cc transparent transparent transparent;
+}

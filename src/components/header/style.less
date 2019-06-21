@@ -1,0 +1,104 @@
+@import '~style/helpers';
+
+.nav_container {
+	background: #26292f;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav_container li>a:not(.btn) {
+	color: #dedede!important;
+}
+
+nav {
+	background: #16181b;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 899px) {
+	nav li:not(.narrow_include) {
+		display: none;
+	}
+	.narrow_exclude {
+		display: none;
+	}
+	.nav_container nav {
+		padding-left: 0.25rem;
+	}
+	.navbar_title {
+		background-size: 160px 64px;
+		width: 160px;
+		height: 64px;
+	}
+}
+@media (min-width: 900px) {
+	nav .wide_hide {
+		display: none;
+	}
+	.navbar_title {
+		background-size: 200px 80px;
+		width: 200px;
+		height: 80px;
+	}
+}
+
+nav .left_menu {
+	position: absolute;
+	left: 0;
+}
+
+nav .left_menu a {
+	padding: .625rem 1.125rem;
+	color: #fff;
+}
+
+nav .left_menu a:hover {
+	text-decoration: none;
+	color: #ccc;
+	transition: color 1s;
+}
+
+nav .left_menu a.narrow_exclude{
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	border: .125rem solid #fff;
+}
+
+nav .left_menu a.wide_hide{
+	text-transform: uppercase;
+	font-size: 2.25rem;
+}
+
+.navbar_title {
+//	background-image: url(/assets/icons/favicon-32x32.png);
+	background-repeat: no-repeat;
+	background-position-y: center;
+	margin: 0px auto;
+	font-weight: bold;
+	color: #dedede!important;
+}
+.navbar_title sup {
+	font-weight: normal;
+	font-variant: small-caps;
+	font-size: 0.7em;
+}
+
+.nav_emphasis {
+	color: #f4f1bb!important;
+	font-weight: bold;
+}
+
+.nav_dropdown {
+	font-size: 2em;
+}
+
+.vcenter {
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navscroll {
+	overflow-x: scroll;
+}

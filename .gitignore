@@ -1,0 +1,12 @@
+/node_modules
+/npm-debug.log
+/build
+/build-archives
+.DS_Store
+/coverage
+/.idea
+yarn.lock
+/.vscode
+/README.md
+/raw_images/archive/
+/raw_images/transient/

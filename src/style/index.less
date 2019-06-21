@@ -1,0 +1,122 @@
+body.mkjs-body {
+	background-color: #16181b;
+	font-family: 'PT Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: bold;
+}
+
+/* TODO limit width of content */
+
+.mkjs-body .jumbotron {
+	margin: 1em 0 3em 0;
+	background-color: #f4f1bb;
+}
+
+.mkjs-body .jumbotron a:not(.btn) {
+	color: #2e5057;
+}
+
+.navbar-nav {
+	position: absolute;
+	right: 0;
+}
+@media (max-width: 899px) {
+	.navbar-nav .nav-link {
+		padding-left: 0;
+	}
+}
+
+.text-very-muted {
+	color: #9ca5ad!important;
+}
+
+.mkjs-body .btn-primary {
+	color: #FFF;
+	background-color: #2e5057;
+	border-color: #2e5057;
+}
+.mkjs-body .btn-action {
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+	margin-right: 0.25rem;
+}
+
+/************************* LINKS *************************/
+.mkjs-body .btn-link,
+.mkjs-body .link {
+	color: #2e5057;
+	transition: 0.3s;
+}
+
+.mkjs-body .btn-link:hover {
+	cursor: pointer;
+	background-color: rgba(46,80,87, 0.3);
+}
+
+.app-content a:not(.btn) {
+	color: rgb(46,80,87); /*#2e5057;*/
+	text-decoration: underline;
+	text-decoration-color: rgba(46,80,87, 0.0);
+	transition: 0.3s;
+}
+
+.app-content a:not(.btn):hover {
+	text-decoration-color: rgba(46,80,87, 1.0);
+}
+.app-content .alert a:not(.btn) {
+	opacity: 0.8;
+}
+
+.app-content .text-white a:not(.btn) {
+	text-decoration: underline;
+	text-decoration-color: rgba(247,247,247, 0.0);
+	color: #F7F7F7;
+}
+
+.app-content .text-white a:not(.btn):hover {
+	color: #F7F7F7;
+	text-decoration-color: rgba(247,247,247, 1.0);
+}
+
+.mkjs-body .btn-secondary {
+	color: #FFF;
+	background-color: #9fb8ad;
+	border-color: #9fb8ad;
+}
+
+.mkjs-body *.form-control:not(select) {
+	height: auto;
+	min-height: 2.25rem;
+}
+
+.mkjs-body select.form-control {
+	height: 2.25rem;
+}
+
+.app-content-container {
+	background-color: #fff;
+}
+.app-content {
+	padding-top: 0.5em;
+	max-width: 1440px;
+	background-color: #fff;
+}
+
+.mkjs-body .dropdown-menu {
+	min-width: 11rem;
+}
+
+.dropdown-item a {
+	display: block;
+}
+
+.dropdown-item a:hover {
+	text-decoration: none;
+}
+
+.form-group, .form-check {
+	margin-bottom: 1em;
+}
