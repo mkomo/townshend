@@ -17,7 +17,7 @@
   "keywords": [
     ""
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "Matt Komorowski <mfkomorowski@gmail.com>",
   "jest": {
     "setupFiles": [
