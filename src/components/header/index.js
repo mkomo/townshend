@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 import { LoadingInline } from 'lib/mkjs';
+import { TOWNSHEND_LINKS } from 'lib/townshend/components/townshendentities';
 import {
 	Navbar,
 	NavbarToggler,
@@ -51,7 +52,7 @@ export default class Header extends Component {
 		if (this.props.isAuthenticated) {
 			//TODO get admin or non-admin
 			let items = [
-				<DropdownItem tag="a" href={ "/people/" + this.props.currentUser.username }>
+				<DropdownItem>
 					{this.props.currentUser.username}
 				</DropdownItem>
 			];
@@ -114,11 +115,8 @@ export default class Header extends Component {
 						{ this.getUserNav() }
 					</Nav>
 					<div class={style.left_menu + " ml-2 ml-lg-5"}>
-						<a class={style.narrow_exclude} href={"/"}>
-							home
-						</a>
-						<a class={style.wide_hide} href={"/"}>
-							<i class="fa fa-users" aria-hidden="true"></i>
+						<a href={"/"}>
+							Starter
 						</a>
 					</div>
 				</Navbar>
