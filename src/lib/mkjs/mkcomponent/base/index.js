@@ -232,7 +232,7 @@ class MkComponentBase extends InputComponent {
 		let fieldCaption = this.renderFieldCaption(key, opts.helpId, fieldSpec)
 		let classes = '';
 		if (fieldSpec.if) {
-			classes = 'border-left border-info pl-3 ml-2';
+			classes = 'border-left border-mkjs-primary pl-3 ml-2';
 			if (this.validateIf(subject, fieldSpec.if)) {
 				// add class for fade in and indent
 				classes += (' ' + style.field_shown);

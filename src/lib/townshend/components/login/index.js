@@ -69,7 +69,7 @@ export default class Login extends InputComponent {
 							</Label>
 						</FormGroup>
 						<div class="mt-3">
-							<input class="btn btn-primary" type="submit" value={this.loginButtonText()} />
+							<input class="btn btn-mkjs-primary" type="submit" value={this.loginButtonText()} />
 							&nbsp;
 							{
 								this.props.hideForgot

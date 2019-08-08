@@ -357,8 +357,8 @@ class Invitation extends MkComponent {
 	getListHeaderButtons(list) {
 		if (this.userCan('create')) {
 			return <div class="btn-group pull-right">
-				<button class="btn btn-primary" onClick={()=>this.setState({creatingInModal: true})}>Create New</button>
-				<a class="btn btn-info" href="/organizations">Create Organization for Invite</a>
+				<button class="btn btn-mkjs-primary" onClick={()=>this.setState({creatingInModal: true})}>Create New</button>
+				<a class="btn btn-outline-mkjs-primary" href="/organizations">Create Organization for Invite</a>
 			</div>
 		}
 	}
@@ -571,7 +571,7 @@ class AcceptInvitation extends Invitation {
 class FatHeader extends Component {
 	render() {
 		return <div>
-			<div class="row mt-n2 mb-3 py-5 px-5 bg-info text-white">
+			<div class="row mt-n2 mb-3 py-5 px-5 bg-mkjs-primary text-white">
 				<h1>{this.props.content}</h1>
 			</div>
 		</div>

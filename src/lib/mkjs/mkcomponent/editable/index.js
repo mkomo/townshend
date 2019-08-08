@@ -513,7 +513,7 @@ class MkComponentEditable extends MkComponentListable {
 			{ action
 				? <div>
 						<div class={style.full_page_form_submit + " clearfix mt-3"}>
-							<button type="submit" class="btn btn-primary">{this.getEditButtonText(isUpdate)}</button>
+							<button type="submit" class="btn btn-mkjs-primary">{this.getEditButtonText(isUpdate)}</button>
 							{this.state.hideCancel ? '' : cancelButton}
 						</div>
 						{ isUpdate
@@ -653,7 +653,7 @@ class MkComponentEditable extends MkComponentListable {
 						checked={!currentValue || currentValue === this.getNullSelectValue()} onchange={this.handleChange} /><span class="text-very-muted">unanswered</span>
 				</label>
 				{ options.map((option, i)=>(
-					<label class={"btn mb-1 " + (currentValue === option ? "btn-info active" : "btn-outline-info") + classExtra} for={fieldName + i}>
+					<label class={"btn mb-1 " + (currentValue === option ? "btn-mkjs-primary active" : "btn-outline-mkjs-primary") + classExtra} for={fieldName + i}>
 						<input type="radio" name={fieldName} id={fieldName + i} value={option} autocomplete="off"
 							checked={currentValue===option} onchange={this.handleChange} /> {option}
 					</label>
@@ -664,7 +664,7 @@ class MkComponentEditable extends MkComponentListable {
 	renderMultiCheck(fieldName, options, currentValue, classExtra = '') {
 		return <div class="d-block ml-2 btn-group btn-group-toggle" data-toggle="buttons">
 				{ options.map((option, i)=>(
-					<label class={"btn mb-1 " + (currentValue.includes(option) ? "btn-info active" : "btn-outline-info") + classExtra} for={fieldName + i}>
+					<label class={"btn mb-1 " + (currentValue.includes(option) ? "btn-mkjs-primary active" : "btn-outline-mkjs-primary") + classExtra} for={fieldName + i}>
 						<input type="checkbox" name={fieldName} id={fieldName + i} value={option} autocomplete="off"
 							checked={currentValue.includes(option)} onchange={this.handleChangeMultiCheck} /> {option}
 					</label>
