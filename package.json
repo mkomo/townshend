@@ -93,8 +93,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
-    "d3": "^4.12.2",
-    "d3-selection-multi": "^1.0.1",
     "font-awesome": "^4.7.0",
     "preact": "^8.1.0",
     "preact-compat": "^3.15.0",
@@ -106,8 +104,7 @@
     "proptypes": "^1.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "reactstrap": "^5.0.0-alpha.4",
-    "serve": "^6.0.0"
+    "reactstrap": "^5.0.0-alpha.4"
   },
   "main": "webpack.config.babel.js",
   "directories": {
