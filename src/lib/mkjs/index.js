@@ -272,7 +272,8 @@ function messageForErrorResponse(errorResponse) {
 	} else if (status === 403) {
 		return 'Forbidden.';
 	} else if (status === 401) {
-		return <span>You must <a href="/auth/login">log in</a> to see this page.</span>;
+		let location = window.location.pathname + window.location.search + window.location.hash;
+		return <span>You must <a href={"/auth/login?return=" + location}>log in</a> to see this page.</span>;
 	} else if (status === 400) {
 		return 'Invalid form submission.';
 	} else {

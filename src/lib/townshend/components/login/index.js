@@ -24,18 +24,21 @@ export default class Login extends InputComponent {
 		this.props.apis.user.login(this.state).then(response => {
 			this.setState({
 				formError: null
-			})
-			this.props.onLogin();
+			});
+			this.callOnLogin();
 		}).catch(error => {
 			this.handleError(error);
 		});
 	}
 
-	componentWillMount() {
-		if (this.props.currentUser) {
-			console.log('Login.componentWillMount')
-			this.props.onLogin();
+	componentWillReceiveProps(props) {
+		if (props.currentUser && !this.props.currentUser) {
+			this.callOnLogin('You are already logged in.');
 		}
+	}
+
+	callOnLogin(message) {
+		this.props.onLogin(this.props.return, message);
 	}
 
 	loginTitle() {

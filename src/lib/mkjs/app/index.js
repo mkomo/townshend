@@ -24,9 +24,12 @@ import ContentApi from 'lib/townshend/api/content';
 
 class JoinRedirect extends Component {
 	render() {
+		//if a success method is defined, use that. otherwise use route
 		let func = this.props.success
 			? (path, message)=> this.props.success(message, path)
 			: route;
+		//TODO bugfix: "join now!" banner is persisting even when navigating away
+		//TODO use window.location.replace or equivalent so that back button works from join target
 		if (this.props.isLoading) {
 			return 'loading...';
 		} else if (this.props.isAuthenticated) {
@@ -117,8 +120,12 @@ export default class MkApp extends Component {
 		});
 	}
 
-	onLogin(path="/") {
-		this.loadCurrentUser(()=>this.success('You are now logged in.', path))
+	onLogin(path="/", message='You are now logged in.', fallbackPath) {
+		if (this.state.isLoadingUser) {
+			console.debug('already loading user. do nothing');
+		} else {
+			this.loadCurrentUser(()=>this.success(message, path, fallbackPath))
+		}
 	}
 
 	onLogout() {
@@ -132,12 +139,12 @@ export default class MkApp extends Component {
 
 	loadCurrentUser(callback) {
 		if (this.apis.user.isLoggedIn()) {
-			console.log('loadCurrentUser start', this.apis.user.isLoggedIn(), this.apis.user.getUserId())
+			console.debug('loadCurrentUser start', this.apis.user.isLoggedIn(), this.apis.user.getUserId())
 			this.setState({
 				isLoadingUser: true
 			});
 			this.apis.user.getUser().then(json => {
-				console.log("loadCurrentUser success", this.state, json);
+				console.debug("loadCurrentUser success", this.state, json);
 				this.setState({
 					currentUser: json,
 					isAuthenticated: true,
@@ -238,11 +245,18 @@ export default class MkApp extends Component {
 		return user && user.roles && user.roles.filter(r=>r.roleName === "ADMIN").length > 0
 	}
 
-	success(message, path) {
+	success(message, path, fallbackPath="/") {
 		if (path) {
-			route(path)
+			console.debug('success routing to', path);
+			try {
+				route(path)
+			} catch (e) {
+				console.error(e);
+				route(fallbackPath)
+			}
 		}
 		if (message) {
+			console.log('success setting banner to', message, this.state.banner);
 			this.setState({
 				banner: {
 					content: message,
@@ -271,9 +285,10 @@ export default class MkApp extends Component {
 
 		document.title = this.getTitle(e.url, e);
 		if (!(banner && banner.durable)) {
+			console.log('trying to dismiss banner', this.state.banner);
 			banner.dismissed = true;
+			this.setState({banner});
 		}
-
 	}
 
 	getTitle(url, changeEvent) {

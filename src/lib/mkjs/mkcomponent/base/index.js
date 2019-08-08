@@ -36,7 +36,6 @@ class MkComponentBase extends InputComponent {
 	}
 
 	getItemName(entity = {}) {
-		console.log('getItemName', this, entity);
 		if (entity.name) {
 			return entity.name
 		} else if (entity.id) {
@@ -151,7 +150,7 @@ class MkComponentBase extends InputComponent {
 			} else if (typeof value === 'number') {
 				value = value;
 			} else if (typeof value === 'string') {
-				if (!fieldSpec.type || fieldSpec.format === 'date-time') {
+				if ((!fieldSpec.type && !opts.dontHelp) || fieldSpec.format === 'date-time') {
 					let date = Date.parse(value);
 					if (!isNaN(date)) {
 						value = prettyDateTime(date);

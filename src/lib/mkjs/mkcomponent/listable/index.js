@@ -59,6 +59,7 @@ class MkComponentListable extends MkComponentBase {
 	//TODO second row with colspan showing audit history
 	renderActions(actions, item, index, {list, isEmbedded}) {
 		actions = Object.assign({}, actions);
+		//TODO move these to editable getActions
 		if (this.userCan('update', item) && !isEmbedded && !this.isPrimative()) {
 			actions['update'] = (obj) => {
 				return this.renderListButton('pencil', null, this.getEditUrl(obj));
@@ -67,7 +68,7 @@ class MkComponentListable extends MkComponentBase {
 		if (this.userCan('delete', item) && (!isEmbedded || this.props.enableActions)) {
 			actions['delete'] = (obj, index) => {
 				return this.renderListButton('trash', e=>{
-					console.log('showing confirm', obj, index, this.isPrimative());
+					console.log('Showing deletion confirm', obj, index, this.state.onDelete, this.isPrimative());
 					if (this.isPrimative() || window.confirm("Are you sure you want to permanently delete this item?")) {
 						this.submitDelete(obj, index);
 					}
@@ -176,8 +177,13 @@ class MkComponentListable extends MkComponentBase {
 		return <a class="btn btn-sm btn-action btn-link" style={ icon ? '' : "visibility: hidden"} onClick={onClick} href={href}>{i}</a>
 	}
 
+	getListParams() {
+		return {};
+	}
+
 	fetchList(params=this.props.matches) {
-		console.debug('fetching List!!!!', this.props.matches)
+		params = Object.assign({}, this.getListParams(), params);
+		console.debug('fetching list', params);
 		return this.getApi().list(params);
 	}
 

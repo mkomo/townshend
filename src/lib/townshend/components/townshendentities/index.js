@@ -602,6 +602,49 @@ class LoginAndAcceptInvite extends Login {
 	}
 }
 
+const TOWNSHEND_LINKS = [
+	{
+		path: 'users',
+		name: 'users',
+		description: 'List/search all users'
+	},
+	{
+		path: 'roles',
+		name: 'user roles',
+		description: 'Different roles and features that a user can have.'
+	},
+	{
+		path: 'organizations',
+		name: 'organizations',
+		description: 'List/search all organizations'
+	},
+	{
+		path: 'organization-lists',
+		name: 'organization lists',
+		description: 'Arbitrary sorted lists of organizations.'
+	},
+	{
+		path: 'organization-roles',
+		name: 'organization roles',
+		description: 'Different roles and features that a organization can have.'
+	},
+	{
+		path: 'forgotten-logins',
+		name: 'forgotten logins',
+		description: 'A record of all times users have requested to reset their password.'
+	},
+	{
+		path: 'invitation-requests',
+		name: 'invitation requests',
+		description: 'Individuals who have requested an invite to the portal'
+	},
+	{
+		path: 'invitations',
+		name: 'invitations',
+		description: 'All invitations that have been sent to people to join the portal'
+	}
+]
+
 export {
 	TownshendUser,
 	TownshendOrganization,
@@ -612,5 +655,6 @@ export {
 	InvitationRequest,
 	ForgotLogin,
 	ResetPassword,
-	AcceptInvitation
+	AcceptInvitation,
+	TOWNSHEND_LINKS
 }

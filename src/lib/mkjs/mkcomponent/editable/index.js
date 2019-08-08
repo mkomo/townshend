@@ -21,6 +21,7 @@ class MkComponentEditable extends MkComponentListable {
 		this.state = Object.assign(this.state, {
 			onUpdate: props.onUpdate || null,
 			onCreate: props.onCreate || null,
+			onDelete: props.onDelete || null,
 			editing: this.isEditing(props),
 			creating: this.isCreating(props),
 			createButton: 'createButton' in props,
@@ -32,6 +33,8 @@ class MkComponentEditable extends MkComponentListable {
 
 		if (this.state.editing && this.state.modalEditSubject == null && !this.state.onUpdate) {
 			this.state.onUpdate = (subject) => {
+				//must fetch subject because, routing back to the same component will not initiate fetch;
+				this.fetchSubject();
 				route(this.getViewUrl(subject));
 			}
 		}
@@ -143,8 +146,8 @@ class MkComponentEditable extends MkComponentListable {
 
 	submitDelete(item, index) {
 		this.getApi().delete(item).then(() => {
-			if (this.props.onDelete) {
-				this.props.onDelete(item, index);
+			if (this.state.onDelete) {
+				this.state.onDelete(item, index);
 			}
 			//this makes sense in the context of a list page
 			if (!this.props.subject) {
@@ -156,18 +159,17 @@ class MkComponentEditable extends MkComponentListable {
 	}
 
 	_fieldReference(CT, {
-			api,
 			criteria = {},
 			nameFunc = item=>item ? item.name : 'null',//TODO use CT().getItemName(item)
 			valueFunc = item => item,
 			isSelected = (sel,item)=>(sel && item && sel.id == item.id)//TODO create getId(item)?
 		} = {}) {
-		api = api || new CT(Object.assign({noFetch: true}, this.props)).getApi();
+		let component = new CT(Object.assign({noFetch: true}, this.props));
 		return {
 			componentType: CT,
 			isReference: true,
 			optionList: (subject)=>{
-				return api.list(criteria).then((list)=>{
+				return component.fetchList(criteria).then((list)=>{
 					return list.map(item=>({
 						name : nameFunc(item),
 						value : valueFunc(item),
@@ -436,6 +438,14 @@ class MkComponentEditable extends MkComponentListable {
 		return isUpdate ? 'Update' : 'Create';
 	}
 
+	handleCancel(isUpdate, entity){
+		if (isUpdate) {
+			route(this.getViewUrl(entity));
+		} else {
+			history.back();
+		}
+	}
+
 	_renderEdit(fields, isUpdate=false, entity) {
 		//TODO figure out double rendering
 
@@ -452,10 +462,8 @@ class MkComponentEditable extends MkComponentListable {
 					creatingInModal: false,
 					formError: null
 				});
-			} else if (isUpdate) {
-				route(this.getViewUrl(entity));
 			} else {
-				history.back();
+				this.handleCancel(isUpdate, entity)
 			}
 		}
 		let cancelButton = <button type="button" class="btn btn-secondary ml-2" onClick={cancelAction}>Cancel</button>
@@ -716,8 +724,8 @@ class MkComponentPrimative extends MkComponentEditable {
 	}
 
 	submitDelete(item, index) {
-		if (this.props.onDelete) {
-			this.props.onDelete(item, index);
+		if (this.state.onDelete) {
+			this.state.onDelete(item, index);
 		}
 	}
 

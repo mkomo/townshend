@@ -1,6 +1,7 @@
 import { h, render } from 'preact';
 
 //load bootstrap first so that all other css overrides it.
+//TODO switch to min?
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css'
 import 'style';
