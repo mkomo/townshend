@@ -140,6 +140,7 @@ class MkComponentEditable extends MkComponentListable {
 				route(this.getViewUrl(subject));
 			}
 		}).catch(error => {
+			console.error('error submitting create', error);
 			this.handleError(error);
 		});
 	}

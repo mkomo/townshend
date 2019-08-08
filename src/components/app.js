@@ -63,10 +63,6 @@ export default class App extends MkApp {
 		return 'Townshend Starter';
 	}
 
-	onLogin(path) {
-		super.onLogin(path);
-	}
-
 	render() {
 		let props = this.routeProps();
 		//TODO create an object that maps from the classname to a function mapping an instance to the canonical path

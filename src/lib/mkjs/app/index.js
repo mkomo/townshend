@@ -256,7 +256,7 @@ export default class MkApp extends Component {
 			}
 		}
 		if (message) {
-			console.log('success setting banner to', message, this.state.banner);
+			console.debug('success setting banner to', message);
 			this.setState({
 				banner: {
 					content: message,
@@ -285,10 +285,10 @@ export default class MkApp extends Component {
 
 		document.title = this.getTitle(e.url, e);
 		if (!(banner && banner.durable)) {
-			console.log('trying to dismiss banner', this.state.banner);
 			banner.dismissed = true;
 			this.setState({banner});
 		}
+
 	}
 
 	getTitle(url, changeEvent) {

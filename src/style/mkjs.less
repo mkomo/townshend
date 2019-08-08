@@ -1,0 +1,194 @@
+@import '~style/variables';
+
+.navbar-nav {
+	position: absolute;
+	right: 0;
+}
+@media (max-width: 899px) {
+	.navbar-nav .nav-link {
+		padding-left: 0;
+	}
+}
+
+.text-very-muted {
+	color: #9ca5ad!important;
+}
+
+.mkjs-body .btn-action {
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+	margin-right: 0.25rem;
+}
+
+/************************* LINKS *************************/
+.mkjs-body .btn-link,
+.mkjs-body .link {
+	color: @color-main;
+	transition: 0.3s;
+}
+
+.mkjs-body .btn-link:hover {
+	cursor: pointer;
+	background-color: @color-semi-transparent;
+	text-decoration: none;
+}
+
+.app-content a:not(.btn) {
+	color: @color-main;
+	text-decoration: underline;
+	text-decoration-color: @color-transparent;
+	transition: 0.3s;
+	transition-property: text-decoration-color, color;
+}
+
+.app-content a:not(.btn):hover {
+	color: @color-dark;
+	text-decoration-color: @color-dark;
+}
+.app-content .alert a:not(.btn) {
+	opacity: 0.8;
+}
+
+.app-content .text-white a:not(.btn) {
+	text-decoration: underline;
+	text-decoration-color: rgba(247,247,247, 0.0);
+	color: #F7F7F7;
+}
+
+.app-content .text-white a:not(.btn):hover {
+	color: #F7F7F7;
+	text-decoration-color: rgba(247,247,247, 1.0);
+}
+
+.mkjs-body *.form-control:not(select) {
+	height: auto;
+	min-height: 2.25rem;
+}
+
+.mkjs-body select.form-control {
+	height: 2.25rem;
+}
+
+.app-content-container {
+	background-color: @color-white;
+}
+.app-content {
+	padding-top: 0.5em;
+	max-width: 1440px;
+	background-color: @color-white;
+}
+
+.mkjs-body .dropdown-menu {
+	min-width: 11rem;
+}
+
+.dropdown-item a {
+	display: block;
+}
+
+.dropdown-item a:hover {
+	text-decoration: none;
+}
+
+.form-group, .form-check {
+	margin-bottom: 1em;
+}
+
+
+/******** BUTTONS *********/
+
+
+/*
+btn-info scheme
+
+main - 					17a2b8
+main.border - 	17a2b8
+
+hover - 				138496
+hover.border - 	117a8b
+
+active - 				117a8b
+active.border -	10707f
+
+focus.shadow - 	rgba(58, 176, 195, 0.5)
+
+outline.focus.shadow - rgba(23, 162, 184, 0.5);
+
+disabled - (same as main)
+*/
+
+.btn-mkjs-primary {
+  color: @color-white;
+  background-color: @color-primary;
+  border-color: @color-primary;
+}
+
+.btn-mkjs-primary:hover {
+  color: @color-white;
+  background-color: @color-bright;
+  border-color: @color-main;
+}
+
+.btn-mkjs-primary:focus, .btn-mkjs-primary.focus {
+  box-shadow: 0 0 0 0.2rem @color-desaturated-shadow;
+}
+
+.btn-mkjs-primary.disabled, .btn-mkjs-primary:disabled {
+  color: @color-white;
+  background-color: @color-primary;
+  border-color: @color-primary;
+}
+
+.btn-mkjs-primary:not(:disabled):not(.disabled):active, .btn-mkjs-primary:not(:disabled):not(.disabled).active,
+.show > .btn-mkjs-primary.dropdown-toggle {
+  color: @color-white;
+  background-color: @color-main;
+  border-color: @color-dark;
+}
+
+.btn-mkjs-primary:not(:disabled):not(.disabled):active:focus, .btn-mkjs-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-mkjs-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem @color-desaturated-shadow;
+}
+.btn-outline-mkjs-primary {
+  color: @color-primary;
+  border-color: @color-primary;
+}
+
+.btn-outline-mkjs-primary:hover {
+  color: @color-white;
+  background-color: @color-primary;
+  border-color: @color-primary;
+}
+
+.btn-outline-mkjs-primary:focus, .btn-outline-mkjs-primary.focus {
+  box-shadow: 0 0 0 0.2rem @color-primary-shadow;
+}
+
+.btn-outline-mkjs-primary.disabled, .btn-outline-mkjs-primary:disabled {
+  color: @color-primary;
+  background-color: transparent;
+}
+
+.btn-outline-mkjs-primary:not(:disabled):not(.disabled):active, .btn-outline-mkjs-primary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-mkjs-primary.dropdown-toggle {
+  color: @color-white;
+  background-color: @color-primary;
+  border-color: @color-primary;
+}
+
+.btn-outline-mkjs-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-mkjs-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-mkjs-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem @color-primary-shadow;
+}
+
+.text-mkjs-primary {
+  color: @color-primary!important;
+}
+
+.bg-mkjs-primary {
+  background-color: @color-primary!important;
+}
+.border-mkjs-primary {
+    border-color: @color-primary!important;
+}

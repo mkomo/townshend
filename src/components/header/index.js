@@ -99,8 +99,8 @@ export default class Header extends Component {
 		} else {
 			return <NavItem className={classes}>
 				<div class="btn-group">
-					<Link href="/auth/login" className="btn btn-sm btn-info">log in</Link>
-					<Link href="/join" className="btn btn-sm btn-info">join</Link>
+					<Link href="/auth/login" className="btn btn-sm btn-mkjs-primary">log in</Link>
+					<Link href="/join" className="btn btn-sm btn-mkjs-primary">join</Link>
 				</div>
 			</NavItem>
 		}

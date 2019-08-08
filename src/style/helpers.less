@@ -1,3 +1,5 @@
+@import '~style/variables';
+
 .splash {
 	position: relative;
 	min-height: 300px;
@@ -111,11 +113,11 @@ table.mk_list_table tbody td:not(.mk_list_element_top) {
 	padding: .375rem .75rem;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #2e5057c0;
+	color: @color-main;
 	background: transparent;
 }
 .text_action_button:hover {
-	color: #2e5057;
+	color: @color-dark;
 }
 .text_action_show, .hoverable:hover button {
 	visibility: visible;
@@ -131,7 +133,7 @@ table.mk_list_table tbody td:not(.mk_list_element_top) {
 
 .inline_loader {
 	border: 0.3em solid #f3f3f3;
-	border-top: 0.3em solid #2e5057;
+	border-top: 0.3em solid @color-main;
 	border-radius: 50%;
 	animation: spin 2s linear infinite;
 }
