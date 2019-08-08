@@ -84,7 +84,7 @@ export default class Header extends Component {
 	}
 
 	getUserNav() {
-		let classes = [style.nav_dropdown, style.narrow_include, style.vcenter, "mx-2", "mr-lg-5"].join(' ');
+		let classes = [style.nav_dropdown, style.narrow_include, style.vcenter, "mx-2", "mr-lg-3"].join(' ');
 		if (this.props.isAuthenticated) {
 			let ddItems = this.getDropdownItems();
 			return <Dropdown nav inNavbar className={classes} isOpen={this.state.usermenu} toggle={()=>this.toggle('usermenu')}>
@@ -111,14 +111,10 @@ export default class Header extends Component {
 		return (
 			<div class={style.nav_container}>
 				<Navbar dark expand="xs" className="text-nowrap">
+					<NavbarBrand className={style.navbar_title} href={"/"}>Townshend Starter<sup><i> beta</i></sup></NavbarBrand>
 					<Nav className={ "ml-auto" } navbar>
 						{ this.getUserNav() }
 					</Nav>
-					<div class={style.left_menu + " ml-2 ml-lg-5"}>
-						<a href={"/"}>
-							Starter
-						</a>
-					</div>
 				</Navbar>
 			</div>
 		);
