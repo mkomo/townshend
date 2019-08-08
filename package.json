@@ -92,7 +92,7 @@
     "webpack-dev-server": "^2.4.4"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "preact": "^8.1.0",
     "preact-compat": "^3.15.0",
